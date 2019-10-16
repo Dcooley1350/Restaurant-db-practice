@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+@using Restaurant.Models;
+@model List<Restaurant.Models.Cuisine>;
+@if (@Model.Count == 0)
+{
+    <h4>There are no Cuisines at this time</h4>
+} else
+{
+    <h1>All Cuisines</h1>
+    <ul>
+    @foreach (Cuisine cuisine in Model)
+    {
+        <h3><li>@Html.ActionLink($"{cuisine.Dish}", "Show", new {id = cuisine.CuisineId})</li></h3>
+    }
+    </ul>
+}
+<a href="/Cuisine/Create">Add Cuisine</a>
+<br>
+<a href="/Cuisine">Back to homepage</a>

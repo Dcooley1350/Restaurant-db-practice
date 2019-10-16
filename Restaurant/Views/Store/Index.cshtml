@@ -13,7 +13,7 @@
     <ul>
     @foreach (Store store in Model)
     {
-        <h3><li>@Html.ActionLink($"{store.Name}", "Show", new {id = store.StoreId})</li></h3>
+        <h3><li>@Html.ActionLink($"{store.Name}", "Show", new {id = store.StoreId}) | @store.Cuisine.Dish</li></h3>
     }
     </ul>
 }

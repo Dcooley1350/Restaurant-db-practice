@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+@model Restaurant.Models.Cuisine
+
+<h3>Add a New Type of Cuisine:</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Dish)
+  @Html.TextBoxFor(model => model.Dish, new { @class = "form-control" })
+  <br>
+  @Html.LabelFor(model => model.DishType)
+  @Html.TextBoxFor(model => model.DishType, new { @class = "form-control" })
+  <br>
+  <input type="submit" value="Add Cuisine" />
+}
+
+@Html.ActionLink("Back to Cuisine", "Index")

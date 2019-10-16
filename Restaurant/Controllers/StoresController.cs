@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Restaurant.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Restaurant.Controllers
 {
@@ -17,7 +18,7 @@ namespace Restaurant.Controllers
     [HttpGet]
     public ActionResult Index()
     {
-      List<Store> model = _db.Stores.ToList();
+      List<Store> model = _db.Stores.Include(stores => stores.Cuisine).ToList();
       return View(model);
     }
 
@@ -52,6 +53,19 @@ namespace Restaurant.Controllers
     {
       Store thisStore = _db.Stores.FirstOrDefault( Stores => Stores.StoreId ==  id);
       _db.Stores.Remove(thisStore);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    [HttpGet]
+    public ActionResult Update(int id)
+    {
+      Store thisStore = _db.Stores.FirstOrDefault( Stores => Stores.StoreId == id);
+      return View(thisStore);
+    }
+    [HttpPost, ActionName("Update")]
+    public ActionResult Update(Store store)
+    {
+      _db.Entry(store).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
