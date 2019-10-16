@@ -1,0 +1,23 @@
+  
+@{
+  Layout = "_Layout";
+}
+@model Restaurant.Models.Store
+
+<h3>Add a New Restaurant:</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+  <br>
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+  <br>
+  @Html.LabelFor(model => model.Location)
+  @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+  <br>
+  <input type="submit" value="Add Restaurant" />
+}
+
+@Html.ActionLink("Back to Restaurants", "Index")

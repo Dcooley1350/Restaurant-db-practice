@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Restaurant.Models.Store;
+
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+<h3>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(model => model.Location)</h3>
+
+@Html.ActionLink("Delete This Item", "Delete", new {id = Model.StoreId})
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Update" class="btn btn-success"/>
+}
+@Html.ActionLink("Back to Restaurant List", "Index")

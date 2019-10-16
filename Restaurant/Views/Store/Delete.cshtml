@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+@model Restaurant.Models.Store;
+
+<h3 id="danger">Are you sure you would like to delete this entry?</h3>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" class="btn btn-danger"/>
+}
+@Html.ActionLink("No, Back to Details", "Index")

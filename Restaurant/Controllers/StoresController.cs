@@ -36,10 +36,24 @@ namespace Restaurant.Controllers
     }
 
     [HttpGet]
-    public ActionResult Details(int storeId)
+    public ActionResult Show(int id)
     {
-      Store thisStore = _db.Stores.FirstOrDefault( stores => stores.StoreId == storeId);
+      Store thisStore = _db.Stores.FirstOrDefault( Stores => Stores.StoreId == id);
       return View(thisStore);
+    }
+    [HttpGet]
+    public ActionResult Delete(int id)
+    {
+      Store thisStore = _db.Stores.FirstOrDefault( Stores => Stores.StoreId == id);
+      return View(thisStore);
+    }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult Destroy(int id)
+    {
+      Store thisStore = _db.Stores.FirstOrDefault( Stores => Stores.StoreId ==  id);
+      _db.Stores.Remove(thisStore);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
