@@ -23,6 +23,13 @@ namespace Restaurant.Controllers
       return View(model);
     }
 
+
+    public ActionResult Alphabetize()
+    {
+        List<Store> model = _db.Stores.OrderBy(x => x.Name).ToList();
+        return View("Index", model);
+    }
+
     [HttpGet]
     public ActionResult Create()
     {

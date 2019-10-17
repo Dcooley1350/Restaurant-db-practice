@@ -21,6 +21,12 @@ namespace Restaurant.Controllers
             return View(model);
         }
         [HttpGet]
+        public ActionResult Alphabetize()
+        {
+            List<Cuisine> model =_db.Cuisines.OrderBy(x => x.DishType).ToList();
+            return View("Index",model);
+        }
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
