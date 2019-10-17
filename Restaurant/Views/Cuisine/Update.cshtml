@@ -11,10 +11,10 @@
     @Html.HiddenFor(model => model.CuisineId)
 
     @Html.LabelFor(model => model.DishType)
-    @Html.EditorFor(model => model.DishType)
-
+    @Html.EditorFor(model => model.DishType, new { htmlAttributes = new { @class = "form-control" }})
+    <br>
     
-    <input type="submit" value="Save"/>
+    <input type="submit" value="Save" class="btn btn-default"/>
 }
 
 <p>@Html.ActionLink("Back to Restaurant List", "Index")</p>

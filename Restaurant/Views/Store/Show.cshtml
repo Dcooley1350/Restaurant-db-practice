@@ -8,8 +8,9 @@
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
 <h3>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(model => model.Location)</h3>
 
+<br>
 @Html.ActionLink("Delete This Restaurant", "Delete", new {id = Model.StoreId})
-<br>
+
 @Html.ActionLink("Update This Restaurant", "Update", new {id = Model.StoreId})
-<br>
+
 @Html.ActionLink("Back to Restaurant List", "Index")

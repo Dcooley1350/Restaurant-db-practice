@@ -13,18 +13,18 @@
     @Html.HiddenFor(model => model.StoreId)
 
     @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
-
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" }})
+    <br>
     @Html.LabelFor(model => model.Description)
-    @Html.EditorFor(model => model.Description)
-
+    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" }})
+    <br>
     @Html.LabelFor(model => model.Location)
-    @Html.EditorFor(model => model.Location)
-
+    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" }})
+    <br>
     @Html.LabelFor(model => model.Cuisine)
     @Html.DropDownList("CuisineId")
     
     <input type="submit" value="Save"/>
 }
-
+<br>
 <p>@Html.ActionLink("Back to Restaurant List", "Index")</p>
