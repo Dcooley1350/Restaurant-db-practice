@@ -20,6 +20,9 @@
 
     @Html.LabelFor(model => model.Location)
     @Html.EditorFor(model => model.Location)
+
+    @Html.LabelFor(model => model.Cuisine)
+    @Html.DropDownList("CuisineId")
     
     <input type="submit" value="Save"/>
 }

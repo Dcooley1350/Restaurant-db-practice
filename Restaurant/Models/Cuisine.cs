@@ -8,7 +8,6 @@ namespace Restaurant.Models
         {
             this.Stores = new HashSet<Store>();
         }
-        public string Dish {get; set;}
         public string DishType {get; set;}
         public int CuisineId {get; set;}
         public virtual ICollection<Store> Stores {get; set; }

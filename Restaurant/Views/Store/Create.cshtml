@@ -17,7 +17,9 @@
   @Html.LabelFor(model => model.Location)
   @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
   <br>
-  <input type="submit" value="Add Restaurant" />
+  @Html.LabelFor(model => model.Cuisine)
+  @Html.DropDownList("CuisineId")
+  <input type="submit" value="Add Restaurant" class="btn btn-default" />
 }
 
 @Html.ActionLink("Back to Restaurants", "Index")

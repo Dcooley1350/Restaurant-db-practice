@@ -1,11 +1,27 @@
 @{
   Layout = "_Layout";
 }
+@using Restaurant.Models;
+@model Restaurant.Models.Cuisine;
 
-@model Restaurant.Models.Cuisine
+<h2>@Html.DisplayNameFor(model => model.DishType): @Html.DisplayFor(model => model.DishType)</h2>
+<h4>Associated Restaurants</h4>
+@if(ViewBag.RelatedStores.Count == 0)
+{
+  <p>There are no restaurants serving this kind of cuisine.</p>
+}
+else
+{
+  <ul>
+  @foreach (var item in ViewBag.RelatedStores)
+  {
+      <h3><li>@Html.ActionLink($"{item.Name}", "Show", "Store", new {id = item.StoreId})</li></h3>
+  }
+  </ul>
+}
 
-<h3>@Html.DisplayNameFor(model => model.Dish): @Html.DisplayFor(model => model.Dish)</h3>
-<h3>@Html.DisplayNameFor(model => model.DishType): @Html.DisplayFor(model => model.DishType)</h3>
+
+
 
 @Html.ActionLink("Delete This Cuisine", "Delete", new {id = Model.CuisineId})
 <br>

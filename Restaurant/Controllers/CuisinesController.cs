@@ -36,6 +36,8 @@ namespace Restaurant.Controllers
         public ActionResult Show(int id)
         {
         Cuisine thisDish = _db.Cuisines.FirstOrDefault( Cuisine => Cuisine.CuisineId == id);
+        List<Store> storesList = _db.Stores.Where(Stores => Stores.CuisineId == id).ToList();
+        ViewBag.RelatedStores = storesList;
         return View(thisDish);
         }
         [HttpGet]

@@ -3,6 +3,7 @@ using Restaurant.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Restaurant.Controllers
 {
@@ -25,7 +26,10 @@ namespace Restaurant.Controllers
     [HttpGet]
     public ActionResult Create()
     {
+         
+        ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "DishType");
         return View();
+    
     }
 
     [HttpPost]
@@ -35,11 +39,12 @@ namespace Restaurant.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
-
+ 
     [HttpGet]
     public ActionResult Show(int id)
     {
       Store thisStore = _db.Stores.FirstOrDefault( Stores => Stores.StoreId == id);
+
       return View(thisStore);
     }
     [HttpGet]
@@ -60,6 +65,7 @@ namespace Restaurant.Controllers
     public ActionResult Update(int id)
     {
       Store thisStore = _db.Stores.FirstOrDefault( Stores => Stores.StoreId == id);
+      ViewBag.CuisineId = new SelectList(_db.Cuisines, "CuisineId", "DishType");
       return View(thisStore);
     }
     [HttpPost, ActionName("Update")]

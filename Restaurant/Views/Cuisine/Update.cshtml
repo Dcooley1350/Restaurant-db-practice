@@ -4,15 +4,11 @@
 @model Restaurant.Models.Cuisine;
 
 <h2>Edit</h2>
-<h4>Edit Dish: @Html.DisplayFor(model => model.Dish)</h4>
 <h4>Edit Dish Type: @Html.DisplayFor(model => model.DishType)</h4>
 
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.CuisineId)
-
-    @Html.LabelFor(model => model.Dish)
-    @Html.EditorFor(model => model.Dish)
 
     @Html.LabelFor(model => model.DishType)
     @Html.EditorFor(model => model.DishType)
