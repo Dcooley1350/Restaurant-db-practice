@@ -10,6 +10,23 @@ namespace Restaurant.Controllers
     {
       return View();
     }
+    public ActionResult Search(string type, string search)
+    {
+      switch (type)
+      {
+        case "cuisine":
+
+        return View();
+        
+        case "restaurant":
+
+          return View();
+          
+        default:
+
+          return View();
+      }
+    }
     
   }
 }

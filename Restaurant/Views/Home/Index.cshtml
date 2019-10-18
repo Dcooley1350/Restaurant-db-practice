@@ -8,3 +8,16 @@
 
 @Html.ActionLink("See Cuisines","Index","Cuisine")
 @Html.ActionLink("See All Restaurants","Index", "Store")
+
+<form action="/search" method="get">
+  <div class="form-group">
+    <label name="search">Search for:</label>
+    <input type="text" name="search">
+    <label name="type"> in:</label>
+    <select id="type" name="type">
+      <option>cuisine</option>
+      <option>restaurant</option>
+    </select>
+    <button type="submit" class="btn btn-success">Search</button>
+  </div>
+</form>
